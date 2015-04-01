@@ -253,18 +253,11 @@ public class ShoppingFrame extends javax.swing.JPanel implements ActionListener{
 
         jLabel1.setText("jLabel1");
 
-        //setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         descriptItem1JLabel.setText("1");
-
         descriptItem2JLabel.setText("2");
-
         descriptItem3JLabel.setText("3");
-
         descriptItem4JLabel.setText("4");
-
         descriptItem5JLabel.setText("5");
-
         descriptItem6JLabel.setText("6");
 
         descriptItem7JLabel.setText("7");
@@ -679,19 +672,7 @@ public class ShoppingFrame extends javax.swing.JPanel implements ActionListener{
 
                 //MySql Statement to create a new Purchase Entry
                 ru_product.setOrder(user, products, i);
-                /*
-                String sql = "INSERT INTO `products`.`purchases` (`customerID`, `productID`, `timeStamp`, `creditCard`, `name`)"
-                        + " VALUES ('" + user.getCustomerID() + "', '" + i + "', NOW(), '" + user.getCreditCardNumber() + "', '" + products.get(i).getName() + "');";
-                */
-                        
-                //try {
-                    //stmt.executeUpdate(sql);
-                    JOptionPane.showMessageDialog(null, "You Have Purchased " + products.get(i).getName());
-                /*
-                } catch (SQLException ex) {
-                    Logger.getLogger(ShoppingFrame.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                */
+                JOptionPane.showMessageDialog(null, "You Have Purchased " + products.get(i).getName());
                 //updates Orders to JComboBox
                 try {
                     viewOrders();
@@ -710,7 +691,6 @@ public class ShoppingFrame extends javax.swing.JPanel implements ActionListener{
     }//GEN-LAST:event_exitButtonActionPerformed
 
     private void viewOrderBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewOrderBtnActionPerformed
-
         Purchase purchase = (Purchase) productsComboBox.getSelectedItem();
 
         JOptionPane.showMessageDialog(null, "<html>"

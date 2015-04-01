@@ -78,7 +78,8 @@ public class DatabaseInteraction {
                 this.firstName = rs.getString("firstName");
                 this.lastName = rs.getString("lastName");
                 this.customerID = rs.getInt("customerID");
-                this.creditCard = rs.getString("creditCard");
+                //this.creditCard = rs.getString("creditCard");
+                this.creditCard = "1234567890123456";
                 this.ccExpiration = rs.getDate("ccExpiration");
                 this.address = rs.getString("address");
             }
@@ -169,12 +170,14 @@ public class DatabaseInteraction {
     }
     
     public void setOrder(User user, ArrayList<Product> products, int i){
-        /*String sql = "INSERT INTO `products`.`purchases` (`customerID`, `productID`, `timeStamp`, `creditCard`, `name`)"
+        user.setCreditCardNumber("1234567890123456");
+        String sql = "INSERT INTO `products`.`purchases` (`customerID`, `productID`, `timeStamp`, `creditCard`, `name`)"
                         + " VALUES ('" + user.getCustomerID() + "', '" + i + "', NOW(), '" + user.getCreditCardNumber() + "', '" + products.get(i).getName() + "');";
-        */
+        
+        /*
         String sql = "INSERT INTO `products`.`purchases` (`customerID`, `productID`, `timeStamp`, `creditCard`, `name`)"
                         + " VALUES ('" + user.getCustomerID() + "', '" + i + "', NOW(), AES_ENCRYPT('" + user.getCreditCardNumber() + "','encrypt1'), '" + products.get(i).getName() + "');";
-
+        */
         try {
             stmt.executeUpdate(sql);
         } catch (SQLException ex) {

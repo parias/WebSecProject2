@@ -1,6 +1,10 @@
 package websecurityshopping;
 
 import java.awt.CardLayout;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,6 +19,7 @@ import java.awt.CardLayout;
 public class ShoppingJApplet extends javax.swing.JApplet {
 
     ShoppingFrame shopframe;
+    //Panel shopframe;
     CardLayout card;
     MainLogin mainlogin = new MainLogin(this);
     NewUserForm userform = new NewUserForm(this);
@@ -69,7 +74,14 @@ public class ShoppingJApplet extends javax.swing.JApplet {
     }
     
     public void makeShoppingFrame(User user){
-        shopframe = new ShoppingFrame(this);
+        try {
+            shopframe = new ShoppingFrame(this, user);
+        } catch (SQLException ex) {
+            Logger.getLogger(ShoppingJApplet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ShoppingJApplet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //shopframe = new Panel(user);
         getContentPane().add(shopframe, "shopframe");
     }
     
